@@ -48,7 +48,7 @@ namespace CodeFirstNewDatabaseSample
                 Console.WriteLine("All blogs in the database:");
                 foreach (var item in userQuery)
                 {
-                    Console.WriteLine(item.Username + "is a member of the organization: " + item.Organization.OrganizationName);
+                    Console.WriteLine(item.Username + " is a member of the organization: " + item.Organization.OrganizationName);
 
                 }
 
