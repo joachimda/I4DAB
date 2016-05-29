@@ -12,27 +12,46 @@ namespace CodeFirstNewDatabaseSample
 
             using (var db = new BloggingContext())
             {
-                // Create and save a new Blog 
+                // Create and save a new Blog
+                Console.Write("Enter Username: ");
+                var userName = Console.ReadLine();
                 Console.Write("Enter a name for a new Blog: ");
-                var name = Console.ReadLine();
+                var blogName = Console.ReadLine();
+                Console.Write("Enter a name for a new Organisation: ");
+                var orgName = Console.ReadLine();
 
-                var blog = new Blog { Name = name };
+                //Create entities
+                var organization = new Organization { OrganizationName = orgName };
+                var user = new User { Username = userName, Organization = organization };
+                var blog = new Blog { Name = blogName };
+
+                db.Users.Add(user);
+                db.Organizations.Add(organization);
                 db.Blogs.Add(blog);
                 db.SaveChanges();
 
-                // Display all Blogs from the database 
-                var query = from b in db.Blogs
+                // Query all Blogs from the database 
+                var blogQuery = from b in db.Blogs
                             orderby b.Name
                             select b;
 
+                // Query all Users from the database
+                var userQuery = from u in db.Users
+                                orderby u.Username
+                                select u;
+
+                // Query all Users from the database
+                var orgQuery = from o in db.Organizations
+                                orderby o.OrganizationName
+                                select o;
+
                 Console.WriteLine("All blogs in the database:");
-                foreach (var item in query)
+                foreach (var item in userQuery)
                 {
-                    Console.WriteLine(item.Name);
+                    Console.WriteLine(item.Username + "is a member of the organization: " + item.Organization.OrganizationName);
+
                 }
 
-                Console.WriteLine("Press any key to exit...");
-                Console.ReadKey();
             }
         }
     }

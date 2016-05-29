@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201605292147382_organization.Designer.cs">
       <DependentUpon>201605292147382_organization.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605292149213_keytoOrg.cs" />
+    <Compile Include="Migrations\201605292149213_keytoOrg.Designer.cs">
+      <DependentUpon>201605292149213_keytoOrg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Organization.cs" />
     <Compile Include="Post.cs" />
@@ -93,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605292147382_organization.resx">
       <DependentUpon>201605292147382_organization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605292149213_keytoOrg.resx">
+      <DependentUpon>201605292149213_keytoOrg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
