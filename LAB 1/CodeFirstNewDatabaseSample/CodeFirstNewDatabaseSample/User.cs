@@ -8,4 +8,10 @@ namespace CodeFirstNewDatabaseSample
         public string Username { get; set; }
         public string DisplayName { get; set; }
     }
+
+    public class Organization
+    {
+        public int OrganizationId { get; set; }
+        public string OrganizationName { get; set; }
+    }
 }
